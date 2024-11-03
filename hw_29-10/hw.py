@@ -80,27 +80,27 @@ class Cart:
                         for product, quantity in self.__products.items())
         return f"Cart:\n{res}\nTotal: {self.total()} UAH"
     
-# class PaymentProcessor():
-#     def __init__(self, cart):
-#         self.cart=cart
-#     def pay(self):
-#         return self.cart.total()
+class PaymentProcessor():
+    def __init__(self, cart):
+        self.cart=cart
+    def pay(self):
+        return self.cart.total()
 
-# class CreditCardProcessor(PaymentProcessor):
-#     def __init__(self, cart):
-#         super().__init__(cart)
-#     def pay(self):
-#         return super().pay()+5
-# class PayPalPaymentProcessor(PaymentProcessor):
-#     def __init__(self, cart):
-#         super().__init__(cart)
-#     def pay(self):
-#         return super().pay()*1.1
-# class BankTransferProcessor(PaymentProcessor):
-#     def __init__(self, cart):
-#         super().__init__(cart)
-#     def pay(self):
-#         return super().pay()-0.1
+class CreditCardProcessor(PaymentProcessor):
+    def __init__(self, cart):
+        super().__init__(cart)
+    def pay(self):
+        return super().pay()+5
+class PayPalPaymentProcessor(PaymentProcessor):
+    def __init__(self, cart):
+        super().__init__(cart)
+    def pay(self):
+        return super().pay()*1.1
+class BankTransferProcessor(PaymentProcessor):
+    def __init__(self, cart):
+        super().__init__(cart)
+    def pay(self):
+        return super().pay()-0.1
                
 
 pr1 = Product("Bread", 10)
