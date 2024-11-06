@@ -5,6 +5,7 @@
 """
 from mods.logs import lg_products
 from mods.my_exc import PositivityError
+
 class Product:
     """
     Describes a product with a name and a price.
@@ -30,6 +31,12 @@ class Product:
 
     def __str__(self):
         return f"{self.name}: {self.price}"
+    
+    # from mods.cart import Cart
+    # def __imul__(self, n):
+    #     if isinstance(n, int):
+    #         cart = Cart()
+    #         cart.add_product(self, n)
 
 
 
