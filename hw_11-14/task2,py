@@ -1,0 +1,17 @@
+def fibbonacci():
+    saved_data= [1,1]
+    def inner(n):
+        if not isinstance(n, int):
+            raise TypeError
+        if n<0:
+            raise ValueError
+        while len(saved_data)<=n:
+            saved_data.append(saved_data[-2]+saved_data[-1])
+        return saved_data[n]
+    return inner
+
+f = fibbonacci()
+print(f(10))
+
+for i in range(10):
+    print(f(i))
