@@ -1,0 +1,22 @@
+def log_arguments_results(func):
+    import logging
+    lgs = logging.getLogger("log_products")
+    lgs.setLevel(logging.DEBUG)
+    format = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s - %(message)s')
+    stream_handler = logging.StreamHandler()
+    stream_handler.setLevel(logging.DEBUG)
+    stream_handler.setFormatter(format)
+    lgs.addHandler(stream_handler)
+    def wrapper(*args, **kwargs):
+        lgs.info(f"args : {args}")
+        lgs.info(f"kwargs : {kwargs}")
+        value = func(*args, **kwargs)
+        lgs.info(str(value))
+        return value
+    return wrapper
+@log_arguments_results
+def my_func(a, b, c, d):
+    return(a+b+c+d*d)
+
+
+print (my_func(1, 2, 3, 4))
