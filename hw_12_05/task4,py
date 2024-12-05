@@ -1,0 +1,10 @@
+import re
+
+def chack_login(str):
+    pattern = r"^[A-Za-z0-9]{2,10}$"
+    return re.match(pattern, str)
+
+print (chack_login("abraham"))
+print (chack_login("ab"))
+
+print (chack_login("abrahamlinkoln"))
